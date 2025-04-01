@@ -1,0 +1,143 @@
+{
+	"info": {
+		"_postman_id": "b1c9fd3e-7e75-4bde-9211-618dec7c4df7",
+		"name": "productsapp-automation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43627725"
+	},
+	"item": [
+		{
+			"name": "Get All Products",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Parse the JSON response\r",
+							"var jsonData = JSON.parse(responseBody);\r",
+							"\r",
+							"// Test response status code\r",
+							"pm.test(\"response to be 200 OK\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Tests for first product (jsonData[0])\r",
+							"pm.test(\"value of [0].Id to be 1\", () => {\r",
+							"    pm.expect(jsonData[0].Id).to.equal(1);\r",
+							"});\r",
+							"pm.test(\"value of [0].Name to be Product1\", () => {\r",
+							"    pm.expect(jsonData[0].Name).to.equal(\"Product1\");\r",
+							"});\r",
+							"pm.test(\"value of [0].Price to be 100\", () => {\r",
+							"    pm.expect(jsonData[0].Price).to.equal(100);\r",
+							"});\r",
+							"pm.test(\"value of [0].Category to be Category1\", () => {\r",
+							"    pm.expect(jsonData[0].Category).to.equal(\"Category1\");\r",
+							"});\r",
+							"\r",
+							"// Tests for second product (jsonData[1])\r",
+							"pm.test(\"value of [1].Id to be 2\", () => {\r",
+							"    pm.expect(jsonData[1].Id).to.equal(2);\r",
+							"});\r",
+							"pm.test(\"value of [1].Name to be Product2\", () => {\r",
+							"    pm.expect(jsonData[1].Name).to.equal(\"Product2\");\r",
+							"});\r",
+							"pm.test(\"value of [1].Price to be 200\", () => {\r",
+							"    pm.expect(jsonData[1].Price).to.equal(200);\r",
+							"});\r",
+							"pm.test(\"value of [1].Category to be Category2\", () => {\r",
+							"    pm.expect(jsonData[1].Category).to.equal(\"Category2\");\r",
+							"});\r",
+							"\r",
+							"// Tests for third product (jsonData[2])\r",
+							"pm.test(\"value of [2].Id to be 3\", () => {\r",
+							"    pm.expect(jsonData[2].Id).to.equal(3);\r",
+							"});\r",
+							"pm.test(\"value of [2].Name to be Product3\", () => {\r",
+							"    pm.expect(jsonData[2].Name).to.equal(\"Product3\");\r",
+							"});\r",
+							"pm.test(\"value of [2].Price to be 300\", () => {\r",
+							"    pm.expect(jsonData[2].Price).to.equal(300);\r",
+							"});\r",
+							"pm.test(\"value of [2].Category to be Category3\", () => {\r",
+							"    pm.expect(jsonData[2].Category).to.equal(\"Category3\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44312/api/products",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44312",
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Product by ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Parse the JSON response\r",
+							"var jsonData = JSON.parse(responseBody);\r",
+							"\r",
+							"// Test response status code\r",
+							"pm.test(\"response to be 200 OK\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Tests for the product variables\r",
+							"pm.test(\"Id to be 1\", () => {\r",
+							"    pm.expect(jsonData.Id).to.equal(1);\r",
+							"});\r",
+							"pm.test(\"Name to be Product1\", () => {\r",
+							"    pm.expect(jsonData.Name).to.equal(\"Tomato Soup\");\r",
+							"});\r",
+							"pm.test(\"Price to be 100\", () => {\r",
+							"    pm.expect(jsonData.Price).to.equal(1.0);\r",
+							"});\r",
+							"pm.test(\"Category to be Category1\", () => {\r",
+							"    pm.expect(jsonData.Category).to.equal(\"Groceries\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44312/api/products/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44312",
+					"path": [
+						"api",
+						"products",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
