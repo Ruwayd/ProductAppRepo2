@@ -106,14 +106,25 @@
 							"    pm.expect(jsonData.Id).to.equal(1);\r",
 							"});\r",
 							"pm.test(\"Name to be Product1\", () => {\r",
-							"    pm.expect(jsonData.Name).to.equal(\"Tomato Soup\");\r",
+							"    pm.expect(jsonData.Name).to.equal(\"Potato Soup\");\r",
 							"});\r",
-							"pm.test(\"Price to be 100\", () => {\r",
-							"    pm.expect(jsonData.Price).to.equal(1.0);\r",
+							"pm.test(\"Price to be 12\", () => {\r",
+							"    pm.expect(jsonData.Price).to.equal(12);\r",
 							"});\r",
 							"pm.test(\"Category to be Category1\", () => {\r",
-							"    pm.expect(jsonData.Category).to.equal(\"Groceries\");\r",
-							"});"
+							"    pm.expect(jsonData.Category).to.equal(\"Kroceries\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
 						],
 						"type": "text/javascript",
 						"packages": {}
